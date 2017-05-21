@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('main');
+  this.route('app');
+  this.route('pontos');
 });
 
 export default Router;

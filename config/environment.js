@@ -31,6 +31,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if (environment === 'production') { ENV.baseURL = 'https://se.ifmo.ru/~s207602/dist/'; }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
