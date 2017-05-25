@@ -71,7 +71,7 @@ export default Ember.Controller.extend({
         if (!brokenInternal){
           //console.log("need to update");
           var xhr = new XMLHttpRequest();
-          xhr.open("POST", "/addponto", true);
+          xhr.open("POST", "http://localhost:20762/addponto", true);
           xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
           xhr.onload = function () {
             exth.send("reload");
@@ -213,7 +213,7 @@ export default Ember.Controller.extend({
     //console.log("all ok");
 
     this.set("isProcessing", true);
-    $.get("/login",{}).then(function(data){
+    $.get("http://localhost:20762/login",{}).then(function(data){
       external_this.set("isProcessing", false);
       if (data.result){
         //console.log("authenticated");
@@ -227,12 +227,12 @@ export default Ember.Controller.extend({
   },
   actions : {
     logout(){
-      $.get("/logout",{}).then(function(data){
-        document.location = "/ui/app";
+      $.get("http://localhost:20762/logout",{}).then(function(data){
+        document.location = "app";
       });
     },
     login(){
-      document.location = "/ui/main";
+      document.location = "main";
     },
     changeButtonGroupValueX(data){
       //console.log(data);
@@ -259,7 +259,7 @@ export default Ember.Controller.extend({
         request = "{ x : '"+item+"', y : '"+y+"' }";
         //console.log(request);
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/addponto", true);
+        xhr.open("POST", "http://localhost:20762/addponto", true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.onload = function () {
           ex_th.send("reload");

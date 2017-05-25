@@ -34,13 +34,13 @@ export default Ember.Component.extend({
         loginFailed:false,
         isProcessing:true
       })
-      $.post("/login",{
+      $.post("http://localhost:20762/login",{
         login: this.get("login"),
         password: this.get("password")
       }).then(function(data){
         external_this.set("isProcessing", false);
         if (data.result){
-          document.location = "/ui/app";
+          document.location = "app";
         } else {
           external_this.set("loginFailed",true);
         }

@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     console.log(request);
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "/addponto", true);
+    xhr.open("POST", "http://localhost:20762/addponto", true);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xhr.onload = function () {
       ex_th.controller.send("reload");
